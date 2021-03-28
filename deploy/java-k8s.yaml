@@ -40,6 +40,8 @@ spec:
               value: "cloud"
             - name: SERVER_PORT
               value: "8080"
+            - name: CONFIG
+              value: "k8s"
           ports:
             - containerPort: 8080
               hostPort: 80
