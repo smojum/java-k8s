@@ -35,6 +35,8 @@ Build and Deploy Optimized App.
   * Memory Footprint
   * Dependency Injection, class loader, proxies
 * How to Lower these ^^?
+  * Scripting Language Frameworks
+    * Serverless framework (Demo if time permits.)
   * Rethink JVM
     * Demo of running in GraalVM (if time permits)
   * Rethink Framework
