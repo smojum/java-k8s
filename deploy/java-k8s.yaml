@@ -1,32 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
-
 metadata:
-  name: bk-deployment
+  name: java-k8s-deployment
   labels:
-    app: bk
-
+    app: java-k8s
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bk
-
+      app: java-k8s
   template:
     metadata:
       labels:
-        app: bk
+        app: java-k8s
     spec:
-
       terminationGracePeriodSeconds: 20
       volumes:
-        - name: bk-configmap-volume
+        - name: java-k8s-configmap-volume
           configMap:
-            name: bk-configmap
-
+            name: java-k8s-configmap
       containers:
-
-        - name: bk
+        - name: java-k8s
           image: gcr.io/bootiful/bk
           imagePullPolicy: Always
           readinessProbe:
@@ -38,7 +32,7 @@ spec:
               port: 8080
               path: /actuator/health/liveness
           volumeMounts:
-            - name: bk-configmap-volume
+            - name: java-k8s-configmap-volume
               mountPath: "/config"
               readOnly: true
           env:
@@ -49,23 +43,19 @@ spec:
           ports:
             - containerPort: 8080
               hostPort: 80
-
-
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: bk-configmap
+  name: java-k8s-configmap
 data:
   execution-environment: "Kubernetes"
   server.port: "8080"
-
-
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: bk-service
+  name: java-k8s-service
 spec:
   type: LoadBalancer
   selector:

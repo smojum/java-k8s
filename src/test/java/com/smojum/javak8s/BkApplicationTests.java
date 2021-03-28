@@ -1,4 +1,4 @@
-package com.example.bk;
+package com.smojum.javak8s;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

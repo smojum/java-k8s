@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
 function build_container() {
-  #gcr.io/bootiful/bk
-  APP_NAME=bk
-  GCR_IMAGE_NAME=gcr.io/bootiful/${APP_NAME}
+  APP_NAME=java-k8s
+  GCR_IMAGE_NAME=gcr.io/presentation/${APP_NAME}
   docker images -q $GCR_IMAGE_NAME | while read l; do docker rmi -f $l; done
 
   echo "Building $GCR_IMAGE_NAME"
@@ -19,9 +18,9 @@ function build_container() {
 }
 
 echo "going to deploy the application"
-NS=bk
+NS=mynamespace
 kubectl get ns/$NS || kubectl create namespace $NS
 cd $(dirname $0)/..
-#build_container
+build_container
 cd $(dirname $0)
-kubectl apply -f bk.yaml -n $NS
+kubectl apply -f java-k8s.yaml -n $NS
