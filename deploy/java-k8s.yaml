@@ -53,6 +53,7 @@ metadata:
 data:
   execution-environment: "Kubernetes"
   server.port: "8080"
+  config: "k8s"
 ---
 apiVersion: v1
 kind: Service
