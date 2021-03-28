@@ -37,7 +37,7 @@ spec:
               readOnly: true
           env:
             - name: "SPRING_PROFILES_ACTIVE"
-              value: "cloud"
+              value: "k8s"
             - name: SERVER_PORT
               value: "8080"
             - name: CONFIG
