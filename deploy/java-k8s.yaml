@@ -21,7 +21,7 @@ spec:
             name: java-k8s-configmap
       containers:
         - name: java-k8s
-          image: gcr.io/bootiful/bk
+          image: gcr.io/ultra-tube-309002/java-k8s
           imagePullPolicy: Always
           readinessProbe:
             httpGet:
@@ -59,7 +59,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: bk
+    app: java-k8s
   ports:
     - port: 80
       targetPort: 8080
