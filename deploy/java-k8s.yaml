@@ -21,7 +21,7 @@ spec:
             name: java-k8s-configmap
       containers:
         - name: java-k8s
-          image: gcr.io/ultra-tube-309002/java-k8s
+          image: gcr.io/tribal-union-94611/java-k8s
           imagePullPolicy: Always
           readinessProbe:
             httpGet:
