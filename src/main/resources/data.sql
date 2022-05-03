@@ -1,5 +1,3 @@
--- noinspection SqlNoDataSourceInspectionForFile
-
 CREATE TABLE customer
 (
     id         SERIAL PRIMARY KEY,
